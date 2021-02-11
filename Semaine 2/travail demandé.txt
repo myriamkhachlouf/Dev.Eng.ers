@@ -1,4 +1,18 @@
+GL:
 
+* Présentation PPT (durée estimée 15 à 20 minutes par groupe) :
+1/ Une description du projet affecté .
+2/ Le digramme de cas d'utilisation global du projet.
+3/ Un extrait du Product Backlog (1 feature par membre exemple).
+4/ La description de l'architecture physique globale du projet (schéma illustratif ou diagramme de déploiement).
+
+
+
+
+
+
+
+PI:
  
 * Présentation : 15 min /équipe :  
 
