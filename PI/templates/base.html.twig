@@ -1,12 +1,18 @@
 <!DOCTYPE HTML>
 <html>
+
+
 <head>
+    {% block title%}
     <title>PHPJabbers.com | Free Job Agency Website Template</title>
+    {%endblock %}
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../public/assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="../public/assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    {% block stylesheet %}{%endblock %}
 </head>
 <body class="is-preload">
 
@@ -15,7 +21,7 @@
 
     <!-- Header -->
     <header id="header" class="alt">
-        <a href="base.html.twig" class="logo"><strong>Job Agency</strong> <span>Website</span></a>
+        <a href="/first" class="logo"><strong>Job Agency</strong> <span>Website</span></a>
         <nav>
             <a href="#menu">Menu</a>
         </nav>
@@ -24,21 +30,21 @@
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li class="active"> <a href="base.html.twig">Home </a> </li>
+            <li class="active"> <a href="/first">Home </a> </li>
 
-            <li> <a href="jobs.html.twig">Jobs</a> </li>
+            <li> <a href="/jobs">Jobs</a> </li>
 
-            <li> <a href="blog.html.twig">Blog</a> </li>
+            <li> <a href="/blog">Blog</a> </li>
 
-            <li> <a href="about-us.html.twig">About Us</a> </li>
+            <li> <a href="/about">About Us</a> </li>
 
-            <li><a href="team.html.twig">Team</a></li>
+            <li><a href="/team">Team</a></li>
 
-            <li><a href="testimonials.html.twig">Testimonials</a></li>
+            <li><a href="/testimonials">Testimonials</a></li>
 
-            <li><a href="terms.html.twig">Terms</a></li>
+            <li><a href="/terms">Terms</a></li>
 
-            <li><a href="contact.html.twig">Contact Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
         </ul>
     </nav>
 
@@ -51,7 +57,7 @@
             <div class="content">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, libero!</p>
                 <ul class="actions">
-                    <li><a href="contact.html.twig" class="button next scrolly">Contact Us</a></li>
+                    <li><a href="/contact" class="button next scrolly">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -69,7 +75,7 @@
                 </header>
                 <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
                 <ul class="actions">
-                    <li><a href="about-us.html.twig" class="button next">Read more</a></li>
+                    <li><a href="/about" class="button next">Read more</a></li>
                 </ul>
             </div>
         </section>
@@ -78,7 +84,7 @@
         <section class="tiles">
             <article>
 							<span class="image">
-								<img src="../public/images/product-1-720x480.jpg" alt="" />
+								<img src="images/product-1-720x480.jpg" alt="" />
 							</span>
 
                 <header class="major">
@@ -96,14 +102,14 @@
                     <p> BMI Kings Park Hospital</p>
 
                     <div class="major-actions">
-                        <a href="job-details.html.twig" class="button small next">View Job</a>
+                        <a href="/jobdetails" class="button small next">View Job</a>
                     </div>
                 </header>
             </article>
 
             <article>
 							<span class="image">
-								<img src="../public/images/product-2-720x480.jpg" alt="" />
+								<img src="images/product-2-720x480.jpg" alt="" />
 							</span>
 
                 <header class="major">
@@ -121,14 +127,14 @@
                     <p> BMI Kings Park Hospital</p>
 
                     <div class="major-actions">
-                        <a href="job-details.html.twig" class="button small next">View Job</a>
+                        <a href="/jobdetails" class="button small next">View Job</a>
                     </div>
                 </header>
             </article>
 
             <article>
 							<span class="image">
-								<img src="../public/images/product-3-720x480.jpg" alt="" />
+								<img src="images/product-3-720x480.jpg" alt="" />
 							</span>
 
                 <header class="major">
@@ -146,14 +152,14 @@
                     <p> BMI Kings Park Hospital</p>
 
                     <div class="major-actions">
-                        <a href="job-details.html.twig" class="button small next">View Job</a>
+                        <a href="/jobs" class="button small next">View Job</a>
                     </div>
                 </header>
             </article>
 
             <article>
 							<span class="image">
-								<img src="../public/images/product-4-720x480.jpg" alt="" />
+								<img src="images/product-4-720x480.jpg" alt="" />
 							</span>
 
                 <header class="major">
@@ -171,14 +177,14 @@
                     <p> BMI Kings Park Hospital</p>
 
                     <div class="major-actions">
-                        <a href="job-details.html.twig" class="button small next">View Job</a>
+                        <a href="/jobdetails" class="button small next">View Job</a>
                     </div>
                 </header>
             </article>
 
             <article>
 							<span class="image">
-								<img src="../public/images/product-5-720x480.jpg" alt="" />
+								<img src="images/product-5-720x480.jpg" alt="" />
 							</span>
 
                 <header class="major">
@@ -196,14 +202,14 @@
                     <p> BMI Kings Park Hospital</p>
 
                     <div class="major-actions">
-                        <a href="job-details.html.twig" class="button small next">View Job</a>
+                        <a href="/jobdetails" class="button small next">View Job</a>
                     </div>
                 </header>
             </article>
 
             <article>
 							<span class="image">
-								<img src="../public/images/product-6-720x480.jpg" alt="" />
+								<img src="images/product-6-720x480.jpg" alt="" />
 							</span>
 
                 <header class="major">
@@ -221,7 +227,7 @@
                     <p> BMI Kings Park Hospital</p>
 
                     <div class="major-actions">
-                        <a href="job-details.html.twig" class="button small next">View Job</a>
+                        <a href="/jobdetails" class="button small next">View Job</a>
                     </div>
                 </header>
             </article>
@@ -246,7 +252,7 @@
                     </div>
                 </div>
                 <ul class="actions">
-                    <li><a href="testimonials.html.twig" class="button next">Read more</a></li>
+                    <li><a href="/testimonials" class="button next">Read more</a></li>
                 </ul>
             </div>
         </section>
@@ -255,7 +261,7 @@
         <section class="tiles">
             <article>
 							<span class="image">
-								<img src="../public/images/blog-1-720x480.jpg" alt="" />
+								<img src="images/blog-1-720x480.jpg" alt="" />
 							</span>
                 <header class="major">
                     <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
@@ -263,13 +269,13 @@
                     <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
 
                     <div class="major-actions">
-                        <a href="blog-details.html.twig" class="button small next scrolly">Read Blog</a>
+                        <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
                     </div>
                 </header>
             </article>
             <article>
 							<span class="image">
-								<img src="../public/images/blog-2-720x480.jpg" alt="" />
+								<img src="images/blog-2-720x480.jpg" alt="" />
 							</span>
                 <header class="major">
                     <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
@@ -277,13 +283,13 @@
                     <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
 
                     <div class="major-actions">
-                        <a href="blog-details.html.twig" class="button small next scrolly">Read Blog</a>
+                        <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
                     </div>
                 </header>
             </article>
             <article>
 							<span class="image">
-								<img src="../public/images/blog-3-720x480.jpg" alt="" />
+								<img src="images/blog-3-720x480.jpg" alt="" />
 							</span>
                 <header class="major">
                     <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
@@ -291,7 +297,7 @@
                     <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
 
                     <div class="major-actions">
-                        <a href="blog-details.html.twig" class="button small next scrolly">Read Blog</a>
+                        <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
                     </div>
                 </header>
             </article>
@@ -317,14 +323,14 @@
 </div>
 
 <!-- Scripts -->
-<script src="../public/assets/js/jquery.min.js"></script>
-<script src="../public/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../public/assets/js/jquery.scrolly.min.js"></script>
-<script src="../public/assets/js/jquery.scrollex.min.js"></script>
-<script src="../public/assets/js/browser.min.js"></script>
-<script src="../public/assets/js/breakpoints.min.js"></script>
-<script src="../public/assets/js/util.js"></script>
-<script src="../public/assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
