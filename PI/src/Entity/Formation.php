@@ -48,13 +48,13 @@ class Formation
     private $rating;
 
     /**
-     * @ORM\ManyToOne(targetEntity=entreprise::class)
+     * @ORM\ManyToOne(targetEntity=Entreprise::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;
 
     /**
-     * @ORM\OneToOne(targetEntity=formateur::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Formateur::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $formateur;

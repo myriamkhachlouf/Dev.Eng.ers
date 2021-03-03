@@ -20,7 +20,7 @@ class Reclamation
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=candidat::class, mappedBy="reclamation", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="Reclamation", orphanRemoval=true)
      */
     private $candidat;
 
@@ -30,7 +30,7 @@ class Reclamation
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity=entreprise::class, inversedBy="reclamations")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="reclamations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;
@@ -59,7 +59,7 @@ class Reclamation
         return $this->candidat;
     }
 
-    public function addCandidat(candidat $candidat): self
+    public function addCandidat(Candidat $candidat): self
     {
         if (!$this->candidat->contains($candidat)) {
             $this->candidat[] = $candidat;
@@ -69,7 +69,7 @@ class Reclamation
         return $this;
     }
 
-    public function removeCandidat(candidat $candidat): self
+    public function removeCandidat(Candidat $candidat): self
     {
         if ($this->candidat->removeElement($candidat)) {
             // set the owning side to null (unless already changed)
@@ -98,9 +98,9 @@ class Reclamation
         return $this->entreprise;
     }
 
-    public function setEntreprise(?entreprise $entreprise): self
+    public function setEntreprise(?Entreprise $entreprise): self
     {
-        $this->entreprise = $entreprise;
+        $this->Entreprise = $entreprise;
 
         return $this;
     }
