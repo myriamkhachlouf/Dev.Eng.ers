@@ -20,7 +20,7 @@ class Reclamation
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=candidat::class, mappedBy="reclamation", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="reclamation", orphanRemoval=true)
      */
     private $candidat;
 
@@ -30,7 +30,7 @@ class Reclamation
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity=entreprise::class, inversedBy="reclamations")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="reclamations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;
