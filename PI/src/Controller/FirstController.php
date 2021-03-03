@@ -99,4 +99,85 @@ class FirstController extends AbstractController
             'controller_name' => 'FirstController',
         ]);
     }
+    /**
+     * @Route("/dashboard", name="dashboard")
+     */
+    public function dashboard(): Response
+    {
+        return $this->render('dashboard.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/icons", name="icons")
+     */
+    public function icons(): Response
+    {
+        return $this->render('icons.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/map", name="map")
+     */
+    public function map(): Response
+    {
+        return $this->render('map.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/notification", name="notification")
+     */
+    public function notification(): Response
+    {
+        return $this->render('notifications.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/rtl", name="rtl")
+     */
+    public function rtl(): Response
+    {
+        return $this->render('rtl.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/tables", name="tables")
+     */
+    public function tables(): Response
+    {
+        return $this->render('tables.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/typography", name="typography")
+     */
+    public function typography(): Response
+    {
+        return $this->render('typography.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/upgrade", name="upgrade")
+     */
+    public function upgrade(): Response
+    {
+        return $this->render('upgrade.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/user", name="user")
+     */
+    public function userr(): Response
+    {
+        return $this->render('user.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
 }
