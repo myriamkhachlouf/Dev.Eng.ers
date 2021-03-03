@@ -23,13 +23,13 @@ class Candidature
     private $date_candidature;
 
     /**
-     * @ORM\ManyToOne(targetEntity=candidat::class, inversedBy="candidatures")
+     * @ORM\ManyToOne(targetEntity=Candidat::class, inversedBy="candidatures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $candidat;
 
     /**
-     * @ORM\ManyToOne(targetEntity=offre::class, inversedBy="candidatures")
+     * @ORM\ManyToOne(targetEntity=Offre::class, inversedBy="candidatures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $offre;

@@ -18,13 +18,13 @@ class Entretien
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=candidature::class, inversedBy="entretien", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Candidature::class, inversedBy="entretien", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $cadidature;
 
     /**
-     * @ORM\ManyToOne(targetEntity=recruteur::class, inversedBy="entretiens")
+     * @ORM\ManyToOne(targetEntity=Recruteur::class, inversedBy="entretiens")
      * @ORM\JoinColumn(nullable=false)
      */
     private $recruteur;
