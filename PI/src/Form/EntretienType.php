@@ -29,7 +29,6 @@ class EntretienType extends AbstractType
                 'class'=> Recruteur::class,
                 'choice_label'=>'id'
             ])
-            ->add('grilleEvaluation')
         ;
     }
 
