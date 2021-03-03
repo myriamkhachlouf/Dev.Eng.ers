@@ -142,26 +142,26 @@ class Formation
         return $this;
     }
 
-    public function getEntreprise(): ?entreprise
+    public function getEntreprise(): ?Entreprise
     {
         return $this->entreprise;
     }
 
-    public function setEntreprise(?entreprise $entreprise): self
+    public function setEntreprise(?Entreprise  $entreprise): self
     {
         $this->entreprise = $entreprise;
 
         return $this;
     }
 
-    public function getFormateur(): ?formateur
+    public function getFormateur(): ?Formateur
     {
         return $this->formateur;
     }
 
-    public function setFormateur(formateur $formateur): self
+    public function setFormateur(Formateur $formateur): self
     {
-        $this->formateur = $formateur;
+        $this->Formateur = $formateur;
 
         return $this;
     }

@@ -52,7 +52,7 @@ class Reclamation
     }
 
     /**
-     * @return Collection|candidat[]
+     * @return Collection|Candidat[]
      */
     public function getCandidat(): Collection
     {
@@ -61,8 +61,8 @@ class Reclamation
 
     public function addCandidat(Candidat $candidat): self
     {
-        if (!$this->candidat->contains($candidat)) {
-            $this->candidat[] = $candidat;
+        if (!$this->Candidat->contains($candidat)) {
+            $this->Candidat[] = $candidat;
             $candidat->setReclamation($this);
         }
 

@@ -17,6 +17,8 @@ class FormationController extends AbstractController
 {
     /**
      * @Route("/", name="formation_index", methods={"GET"})
+     * @param FormationRepository $formationRepository
+     * @return Response
      */
     public function index(FormationRepository $formationRepository): Response
     {
@@ -27,6 +29,8 @@ class FormationController extends AbstractController
 
     /**
      * @Route("/new", name="formation_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class FormationController extends AbstractController
 
     /**
      * @Route("/{id}", name="formation_show", methods={"GET"})
+     * @param Formation $formation
+     * @return Response
      */
     public function show(Formation $formation): Response
     {
@@ -60,6 +66,9 @@ class FormationController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="formation_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Formation $formation
+     * @return Response
      */
     public function edit(Request $request, Formation $formation): Response
     {
@@ -80,8 +89,12 @@ class FormationController extends AbstractController
 
     /**
      * @Route("/{id}", name="formation_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Formation $formation
+     * @return Response
      */
-    public function delete(Request $request, Formation $formation): Response
+    public function delete(Request $request,
+                           Formation $formation): Response
     {
         if ($this->isCsrfTokenValid('delete'.$formation->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
