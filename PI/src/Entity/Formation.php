@@ -48,13 +48,13 @@ class Formation
     private $rating;
 
     /**
-     * @ORM\ManyToOne(targetEntity=entreprise::class)
+     * @ORM\ManyToOne(targetEntity=Entreprise::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;
 
     /**
-     * @ORM\OneToOne(targetEntity=formateur::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Formateur::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $formateur;
@@ -142,26 +142,26 @@ class Formation
         return $this;
     }
 
-    public function getEntreprise(): ?entreprise
+    public function getEntreprise(): ?Entreprise
     {
         return $this->entreprise;
     }
 
-    public function setEntreprise(?entreprise $entreprise): self
+    public function setEntreprise(?Entreprise  $entreprise): self
     {
         $this->entreprise = $entreprise;
 
         return $this;
     }
 
-    public function getFormateur(): ?formateur
+    public function getFormateur(): ?Formateur
     {
         return $this->formateur;
     }
 
-    public function setFormateur(formateur $formateur): self
+    public function setFormateur(Formateur $formateur): self
     {
-        $this->formateur = $formateur;
+        $this->Formateur = $formateur;
 
         return $this;
     }

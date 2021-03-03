@@ -20,7 +20,11 @@ class Reclamation
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="reclamation", orphanRemoval=true)
+<<<<<<< HEAD
+     * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="Reclamation", orphanRemoval=true)
+=======
+     * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="Reclamation", orphanRemoval=true)
+>>>>>>> afd417efdf33d99bf981c8b1e98bd308bc1e5364
      */
     private $candidat;
 
@@ -52,24 +56,24 @@ class Reclamation
     }
 
     /**
-     * @return Collection|candidat[]
+     * @return Collection|Candidat[]
      */
     public function getCandidat(): Collection
     {
         return $this->candidat;
     }
 
-    public function addCandidat(candidat $candidat): self
+    public function addCandidat(Candidat $candidat): self
     {
-        if (!$this->candidat->contains($candidat)) {
-            $this->candidat[] = $candidat;
+        if (!$this->Candidat->contains($candidat)) {
+            $this->Candidat[] = $candidat;
             $candidat->setReclamation($this);
         }
 
         return $this;
     }
 
-    public function removeCandidat(candidat $candidat): self
+    public function removeCandidat(Candidat $candidat): self
     {
         if ($this->candidat->removeElement($candidat)) {
             // set the owning side to null (unless already changed)
@@ -98,9 +102,9 @@ class Reclamation
         return $this->entreprise;
     }
 
-    public function setEntreprise(?entreprise $entreprise): self
+    public function setEntreprise(?Entreprise $entreprise): self
     {
-        $this->entreprise = $entreprise;
+        $this->Entreprise = $entreprise;
 
         return $this;
     }
