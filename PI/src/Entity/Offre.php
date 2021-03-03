@@ -25,7 +25,7 @@ class Offre
     private $nom_offre;
 
     /**
-     * @ORM\ManyToOne(targetEntity=entreprise::class, inversedBy="offres")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="offres")
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;

@@ -20,7 +20,11 @@ class Reclamation
     private $id;
 
     /**
+<<<<<<< HEAD
      * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="Reclamation", orphanRemoval=true)
+=======
+     * @ORM\OneToMany(targetEntity=Candidat::class, mappedBy="Reclamation", orphanRemoval=true)
+>>>>>>> afd417efdf33d99bf981c8b1e98bd308bc1e5364
      */
     private $candidat;
 
