@@ -45,13 +45,13 @@ class Candidat
     private $adresse;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Reclamation::class, inversedBy="Candidat")
+     * @ORM\ManyToOne(targetEntity=Reclamation::class, inversedBy="candidat")
      * @ORM\JoinColumn(nullable=false)
      */
     private $reclamation;
 
     /**
-     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="Candidat")
+     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="candidat")
      */
     private $candidatures;
 
