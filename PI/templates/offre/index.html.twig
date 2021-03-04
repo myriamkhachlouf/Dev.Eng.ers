@@ -76,6 +76,7 @@
         </section>
 
         <!-- Featured Jobs -->
+        <a class="button next" href="{{ path('offre_new') }}">Create new</a>
         <section class="tiles">
             {% block body %}
 
@@ -100,24 +101,17 @@
                                 <p> BMI Kings Park Hospital</p>
 
                                 <div class="major-actions">
-                                    <a href="/jobdetails" class="button small next">View Job</a>
+                                    <a class="button small next" href="{{ path('offre_show', {'id': offre.id}) }}">show</a>
+                                    <a class="button small next" href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
                                 </div>
                             </header>
                         </article>
-                        <!------
-                        <tr>
-                            <td>{{ offre.id }}</td>
-                            <td></td>
-                            <td>{{ offre.type }}</td>
-                            <td>
-                                <a href="{{ path('offre_show', {'id': offre.id}) }}">show</a>
-                                <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
-                            </td>
-                        </tr>
-                        -->
+
+
+
+
                     {% endfor %}
 
-                <a href="{{ path('offre_new') }}">Create new</a>
             {% endblock %}
 
         </section>
