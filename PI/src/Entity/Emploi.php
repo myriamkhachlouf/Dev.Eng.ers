@@ -18,7 +18,7 @@ class Emploi
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=offre::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Offre::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $offre;
