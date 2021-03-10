@@ -4,17 +4,19 @@
 
 <head>
     {% block title%}
-    <title>PHPJabbers.com | Free Job Agency Website Template</title>
+        <title>PHPJabbers.com | Free Job Agency Website Template</title>
     {%endblock %}
-    {% block stylesheet %}
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    {% block css %}
+        <link rel="stylesheet" href="{{ asset('../assets/bootstrap/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('../assets/css/main.css') }}" />
+        <noscript><link rel="stylesheet" href="{{ asset('../assets/css/noscript.css') }}" /></noscript>
     {%endblock %}
 </head>
 <body class="is-preload">
+{% block body %}
 
 <!-- Wrapper -->
 <div id="wrapper">
@@ -32,13 +34,13 @@
         <ul class="links">
             <li class="active"> <a href="/first">Home </a> </li>
 
-            <li> <a href="/jobs">Jobs</a> </li>
+            <li><a href="{{ path('formateur_new') }}">Gérer formateur</a></li>
 
             <li> <a href="/blog">Blog</a> </li>
 
             <li> <a href="/about">About Us</a> </li>
 
-            <li><a href="/team">Team</a></li>
+            <li> <a href="{{ path('formation_new') }}">Gérer formation</a></li>
 
             <li><a href="/testimonials">Testimonials</a></li>
 
@@ -62,249 +64,250 @@
             </div>
         </div>
     </section>
+    {% block content%}
 
-    <!-- Main -->
-    {% block content %}
-    <div id="main">
+        <!-- Main -->
+        <div id="main">
 
 
-        <!-- About us -->
-        <section>
-            <div class="inner">
-                <header class="major">
-                    <h2>About us</h2>
-                </header>
-                <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-                <ul class="actions">
-                    <li><a href="/about" class="button next">Read more</a></li>
-                </ul>
-            </div>
-        </section>
+            <!-- About us -->
+            <section>
+                <div class="inner">
+                    <header class="major">
+                        <h2>About us</h2>
+                    </header>
+                    <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+                    <ul class="actions">
+                        <li><a href="/about" class="button next">Read more</a></li>
+                    </ul>
+                </div>
+            </section>
 
-        <!-- Featured Jobs -->
-        <section class="tiles">
-            <article>
+            <!-- Featured Jobs -->
+            <section class="tiles">
+                <article>
 							<span class="image">
 								<img src="images/product-1-720x480.jpg" alt="" />
 							</span>
 
-                <header class="major">
-                    <p>
-                        <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
-                        <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
-                        <i class="fa fa-map-marker"></i> London
-                    </p>
+                    <header class="major">
+                        <p>
+                            <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
+                            <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
+                            <i class="fa fa-map-marker"></i> London
+                        </p>
 
-                    <h3>Lorem ipsum dolor sit</h3>
+                        <h3>Lorem ipsum dolor sit</h3>
 
-                    <p><strong>$60 000</strong></p>
+                        <p><strong>$60 000</strong></p>
 
-                    <p> Medical / Health Jobs</p>
-                    <p> BMI Kings Park Hospital</p>
+                        <p> Medical / Health Jobs</p>
+                        <p> BMI Kings Park Hospital</p>
 
-                    <div class="major-actions">
-                        <a href="/jobdetails" class="button small next">View Job</a>
-                    </div>
-                </header>
-            </article>
+                        <div class="major-actions">
+                            <a href="/jobdetails" class="button small next">View Job</a>
+                        </div>
+                    </header>
+                </article>
 
-            <article>
+                <article>
 							<span class="image">
 								<img src="images/product-2-720x480.jpg" alt="" />
 							</span>
 
-                <header class="major">
-                    <p>
-                        <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
-                        <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
-                        <i class="fa fa-map-marker"></i> London
-                    </p>
+                    <header class="major">
+                        <p>
+                            <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
+                            <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
+                            <i class="fa fa-map-marker"></i> London
+                        </p>
 
-                    <h3>Lorem ipsum dolor sit</h3>
+                        <h3>Lorem ipsum dolor sit</h3>
 
-                    <p><strong>$60 000</strong></p>
+                        <p><strong>$60 000</strong></p>
 
-                    <p> Medical / Health Jobs</p>
-                    <p> BMI Kings Park Hospital</p>
+                        <p> Medical / Health Jobs</p>
+                        <p> BMI Kings Park Hospital</p>
 
-                    <div class="major-actions">
-                        <a href="/jobdetails" class="button small next">View Job</a>
-                    </div>
-                </header>
-            </article>
+                        <div class="major-actions">
+                            <a href="/jobdetails" class="button small next">View Job</a>
+                        </div>
+                    </header>
+                </article>
 
-            <article>
+                <article>
 							<span class="image">
 								<img src="images/product-3-720x480.jpg" alt="" />
 							</span>
 
-                <header class="major">
-                    <p>
-                        <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
-                        <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
-                        <i class="fa fa-map-marker"></i> London
-                    </p>
+                    <header class="major">
+                        <p>
+                            <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
+                            <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
+                            <i class="fa fa-map-marker"></i> London
+                        </p>
 
-                    <h3>Lorem ipsum dolor sit</h3>
+                        <h3>Lorem ipsum dolor sit</h3>
 
-                    <p><strong>$60 000</strong></p>
+                        <p><strong>$60 000</strong></p>
 
-                    <p> Medical / Health Jobs</p>
-                    <p> BMI Kings Park Hospital</p>
+                        <p> Medical / Health Jobs</p>
+                        <p> BMI Kings Park Hospital</p>
 
-                    <div class="major-actions">
-                        <a href="/jobs" class="button small next">View Job</a>
-                    </div>
-                </header>
-            </article>
+                        <div class="major-actions">
+                            <a href="/jobs" class="button small next">View Job</a>
+                        </div>
+                    </header>
+                </article>
 
-            <article>
+                <article>
 							<span class="image">
 								<img src="images/product-4-720x480.jpg" alt="" />
 							</span>
 
-                <header class="major">
-                    <p>
-                        <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
-                        <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
-                        <i class="fa fa-map-marker"></i> London
-                    </p>
+                    <header class="major">
+                        <p>
+                            <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
+                            <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
+                            <i class="fa fa-map-marker"></i> London
+                        </p>
 
-                    <h3>Lorem ipsum dolor sit</h3>
+                        <h3>Lorem ipsum dolor sit</h3>
 
-                    <p><strong>$60 000</strong></p>
+                        <p><strong>$60 000</strong></p>
 
-                    <p> Medical / Health Jobs</p>
-                    <p> BMI Kings Park Hospital</p>
+                        <p> Medical / Health Jobs</p>
+                        <p> BMI Kings Park Hospital</p>
 
-                    <div class="major-actions">
-                        <a href="/jobdetails" class="button small next">View Job</a>
-                    </div>
-                </header>
-            </article>
+                        <div class="major-actions">
+                            <a href="/jobdetails" class="button small next">View Job</a>
+                        </div>
+                    </header>
+                </article>
 
-            <article>
+                <article>
 							<span class="image">
 								<img src="images/product-5-720x480.jpg" alt="" />
 							</span>
 
-                <header class="major">
-                    <p>
-                        <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
-                        <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
-                        <i class="fa fa-map-marker"></i> London
-                    </p>
+                    <header class="major">
+                        <p>
+                            <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
+                            <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
+                            <i class="fa fa-map-marker"></i> London
+                        </p>
 
-                    <h3>Lorem ipsum dolor sit</h3>
+                        <h3>Lorem ipsum dolor sit</h3>
 
-                    <p><strong>$60 000</strong></p>
+                        <p><strong>$60 000</strong></p>
 
-                    <p> Medical / Health Jobs</p>
-                    <p> BMI Kings Park Hospital</p>
+                        <p> Medical / Health Jobs</p>
+                        <p> BMI Kings Park Hospital</p>
 
-                    <div class="major-actions">
-                        <a href="/jobdetails" class="button small next">View Job</a>
-                    </div>
-                </header>
-            </article>
+                        <div class="major-actions">
+                            <a href="/jobdetails" class="button small next">View Job</a>
+                        </div>
+                    </header>
+                </article>
 
-            <article>
+                <article>
 							<span class="image">
 								<img src="images/product-6-720x480.jpg" alt="" />
 							</span>
 
-                <header class="major">
-                    <p>
-                        <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
-                        <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
-                        <i class="fa fa-map-marker"></i> London
-                    </p>
+                    <header class="major">
+                        <p>
+                            <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
+                            <i class="fa fa-file"></i> Contract &nbsp;&nbsp;
+                            <i class="fa fa-map-marker"></i> London
+                        </p>
 
-                    <h3>Lorem ipsum dolor sit</h3>
+                        <h3>Lorem ipsum dolor sit</h3>
 
-                    <p><strong>$60 000</strong></p>
+                        <p><strong>$60 000</strong></p>
 
-                    <p> Medical / Health Jobs</p>
-                    <p> BMI Kings Park Hospital</p>
+                        <p> Medical / Health Jobs</p>
+                        <p> BMI Kings Park Hospital</p>
 
-                    <div class="major-actions">
-                        <a href="/jobdetails" class="button small next">View Job</a>
+                        <div class="major-actions">
+                            <a href="/jobdetails" class="button small next">View Job</a>
+                        </div>
+                    </header>
+                </article>
+            </section>
+
+            <!-- Testimonials -->
+            <section>
+                <div class="inner">
+                    <header class="major">
+                        <h2>Testimonials</h2>
+                    </header>
+                    <div class="row">
+                        <div class="col-6">
+                            <p><em>"Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt."</em></p>
+                            <p><strong>- John Doe</strong></p>
+
+                        </div>
+
+                        <div class="col-6">
+                            <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores temporibus dolorum minus repudiandae, eaque error corporis aliquam, architecto amet itaque nobis. Omnis itaque est dolore, a nostrum numquam. Quae, facilis."</em></p>
+                            <p><strong>- Jack Smith</strong></p>
+                        </div>
                     </div>
-                </header>
-            </article>
-        </section>
-
-        <!-- Testimonials -->
-        <section>
-            <div class="inner">
-                <header class="major">
-                    <h2>Testimonials</h2>
-                </header>
-                <div class="row">
-                    <div class="col-6">
-                        <p><em>"Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt."</em></p>
-                        <p><strong>- John Doe</strong></p>
-
-                    </div>
-
-                    <div class="col-6">
-                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores temporibus dolorum minus repudiandae, eaque error corporis aliquam, architecto amet itaque nobis. Omnis itaque est dolore, a nostrum numquam. Quae, facilis."</em></p>
-                        <p><strong>- Jack Smith</strong></p>
-                    </div>
+                    <ul class="actions">
+                        <li><a href="/testimonials" class="button next">Read more</a></li>
+                    </ul>
                 </div>
-                <ul class="actions">
-                    <li><a href="/testimonials" class="button next">Read more</a></li>
-                </ul>
-            </div>
-        </section>
+            </section>
 
-        <!-- Blog Posts -->
-        <section class="tiles">
-            <article>
+            <!-- Blog Posts -->
+            <section class="tiles">
+                <article>
 							<span class="image">
 								<img src="images/blog-1-720x480.jpg" alt="" />
 							</span>
-                <header class="major">
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
+                    <header class="major">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
 
-                    <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+                        <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
 
-                    <div class="major-actions">
-                        <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
-                    </div>
-                </header>
-            </article>
-            <article>
+                        <div class="major-actions">
+                            <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
+                        </div>
+                    </header>
+                </article>
+                <article>
 							<span class="image">
 								<img src="images/blog-2-720x480.jpg" alt="" />
 							</span>
-                <header class="major">
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
+                    <header class="major">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
 
-                    <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+                        <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
 
-                    <div class="major-actions">
-                        <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
-                    </div>
-                </header>
-            </article>
-            <article>
+                        <div class="major-actions">
+                            <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
+                        </div>
+                    </header>
+                </article>
+                <article>
 							<span class="image">
 								<img src="images/blog-3-720x480.jpg" alt="" />
 							</span>
-                <header class="major">
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
+                    <header class="major">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
 
-                    <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+                        <p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
 
-                    <div class="major-actions">
-                        <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
-                    </div>
-                </header>
-            </article>
-        </section>
-    </div>
-    {% endblock  %}
+                        <div class="major-actions">
+                            <a href="/blogdetails" class="button small next scrolly">Read Blog</a>
+                        </div>
+                    </header>
+                </article>
+            </section>
+        </div>
+    {% endblock %}
+
     <!-- Footer -->
     <footer id="footer">
         <div class="inner">
@@ -322,17 +325,19 @@
     </footer>
 
 </div>
+{% block script%}
 
-<!-- Scripts -->
-{% block script %}
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('../assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('../assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('../assets/js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ asset('../assets/js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ asset('../assets/js/browser.min.js') }}"></script>
+    <script src="{{ asset('../assets/js/breakpoints.min.js') }}"></script>
+    <script src="{{ asset('../assets/js/util.js') }}"></script>
+    <script src="{{ asset('../assets/js/main.js') }}"></script>
 {% endblock %}
+
 </body>
+{% endblock %}
 </html>

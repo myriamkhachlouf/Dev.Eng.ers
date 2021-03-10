@@ -18,7 +18,12 @@ class EntretienRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Entretien::class);
     }
-
+    public function listOrderByDate()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.date', 'ASC')
+            ->getQuery()->getResult();
+    }
     // /**
     //  * @return Entretien[] Returns an array of Entretien objects
     //  */

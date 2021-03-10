@@ -18,7 +18,7 @@ class GrilleEvaluation
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=Entretien::class, inversedBy="GrilleEvaluation", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Entretien::class, mappedBy="GrilleEvaluation", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $entretien;
