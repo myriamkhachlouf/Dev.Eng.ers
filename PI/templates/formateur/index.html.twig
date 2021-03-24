@@ -1,8 +1,10 @@
+{% extends 'base.html.twig' %}
 
-{% block title %}Formateur index{% endblock %}
-
-{% block body %}
-    <h1>Formateur index</h1>
+{% block content %}
+    <form method="POST">
+        <input type="text" name="Recherche">
+        <button type="submit" >Recherche</button>
+    </form>
 
     <table class="table">
         <thead>
@@ -13,7 +15,6 @@
                 <th>Statut</th>
                 <th>Typecontrat</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,7 +27,6 @@
                 <td>{{ formateur.statut }}</td>
                 <td>{{ formateur.typecontrat }}</td>
                 <td>{{ formateur.email }}</td>
-                <td>{{ formateur.password }}</td>
                 <td>
                     <a href="{{ path('formateur_show', {'id': formateur.id}) }}">show</a>
                     <a href="{{ path('formateur_edit', {'id': formateur.id}) }}">edit</a>
@@ -41,4 +41,18 @@
     </table>
 
     <a href="{{ path('formateur_new') }}">Create new</a>
+
+
+
 {% endblock %}
+
+    {% block script %}
+        <script src="{{ asset('../assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('../assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('../assets/js/jquery.scrolly.min.js') }}"></script>
+        <script src="{{ asset('../assets/js/jquery.scrollex.min.js') }}"></script>
+        <script src="{{ asset('../assets/js/browser.min.js') }}"></script>
+        <script src="{{ asset('../assets/js/breakpoints.min.js') }}"></script>
+        <script src="{{ asset('../assets/js/util.js') }}"></script>
+        <script src="{{ asset('../assets/js/main.js') }}"></script>
+    {% endblock %}

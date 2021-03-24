@@ -18,7 +18,24 @@ class OffreRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Offre::class);
     }
+    public function listOrderByEntreprise()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.nom_offre', 'ASC')
+            ->getQuery()->getResult();
+    }
+    public function Recherche($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->Where('e.nom_offre LIKE :val')
+            ->OrWhere('e.type LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
 
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Offre[] Returns an array of Offre objects
     //  */

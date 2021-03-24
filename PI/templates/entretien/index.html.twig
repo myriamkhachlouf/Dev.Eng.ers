@@ -1,8 +1,8 @@
-
+{% extends 'base.html.twig' %}
 
 {% block title %}Entretien index{% endblock %}
 
-{% block body %}
+{% block content %}
     <h1>Entretien index</h1>
 
     <table class="table">
@@ -26,7 +26,11 @@
                 <td>{{ entretien.lieu }}</td>
                 <td>{{ entretien.confirmation ? 'Yes' : 'No' }}</td>
                 <td>{{ entretien.etat ? 'Yes' : 'No' }}</td>
+
                 <td>
+                    {% if entretien.etat==1 %}
+                        <a href="{{ path('grille_evaluation_new', {'id': entretien.id}) }}">Evaluer</a>
+                    {%endif %}
                     <a href="{{ path('entretien_show', {'id': entretien.id}) }}">show</a>
                     <a href="{{ path('entretien_edit', {'id': entretien.id}) }}">edit</a>
                 </td>
@@ -38,6 +42,10 @@
         {% endfor %}
         </tbody>
     </table>
-
+    <div class="navigation">
+        {{ knp_pagination_render(entretiens) }}
+    </div>
     <a href="{{ path('entretien_new') }}">Create new</a>
+    <a href="{{ path('trier_index') }}">trier par date</a>
+
 {% endblock %}

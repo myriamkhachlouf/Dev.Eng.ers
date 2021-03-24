@@ -47,4 +47,23 @@ class FormateurRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function Recherche($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->Where('e.nom LIKE :val')
+            ->OrWhere('e.prenom LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function listOrderByNote()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.nom', 'ASC')
+            ->getQuery()->getResult();
+    }
+
 }

@@ -16,9 +16,9 @@
 
 <!-- Wrapper -->
 <div id="wrapper">
-    <a href="{{ path('offre_index') }}">back to list</a>
+    <a class="button small next" href="{{ path('offre_index') }}">back to list</a>
 
-    <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+    <a class="button small next" href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
 
     {{ include('offre/_delete_form.html.twig') }}
     <!-- Header -->

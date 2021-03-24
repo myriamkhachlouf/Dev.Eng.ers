@@ -39,6 +39,11 @@ class Candidature
      */
     private $entretien;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Pdf;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +98,18 @@ class Candidature
         }
 
         $this->entretien = $entretien;
+
+        return $this;
+    }
+
+    public function getPdf()
+    {
+        return $this->Pdf;
+    }
+
+    public function setPdf($Pdf)
+    {
+        $this->Pdf = $Pdf;
 
         return $this;
     }

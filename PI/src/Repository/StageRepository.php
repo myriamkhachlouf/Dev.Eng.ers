@@ -18,6 +18,23 @@ class StageRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Stage::class);
     }
+    public function Recherche($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->Where('e.type_du_stage LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function listOrderByTypeStage()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.type_du_stage', 'ASC')
+            ->getQuery()->getResult();
+    }
 
     // /**
     //  * @return Stage[] Returns an array of Stage objects
@@ -25,10 +42,10 @@ class StageRepository extends ServiceEntityRepository
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
+            ->orderBy('r.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -39,8 +56,8 @@ class StageRepository extends ServiceEntityRepository
     /*
     public function findOneBySomeField($value): ?Stage
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

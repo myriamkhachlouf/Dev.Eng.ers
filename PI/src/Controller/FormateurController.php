@@ -16,14 +16,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormateurController extends AbstractController
 {
     /**
-     * @Route("/", name="formateur_index", methods={"GET"})
+     * @Route("/", name="formateur_index", methods={"GET","POST"})
      */
-    public function index(FormateurRepository $formateurRepository): Response
+    public function index(FormateurRepository $formateurRepository,Request $request ): Response
     {
+        if($request->isMethod("POST"))
+        {
+            $value=$request->get('Recherche');
+            return $this->render('formateur/index.html.twig', [
+                'formateurs' => $formateurRepository->Recherche($value),
+            ]);
+
+        }
         return $this->render('formateur/index.html.twig', [
             'formateurs' => $formateurRepository->findAll(),
+            'formateurs' => $formateurRepository->listOrderByNote(),
+
         ]);
     }
+
 
     /**
      * @Route("/new", name="formateur_new", methods={"GET","POST"})
@@ -38,6 +49,7 @@ class FormateurController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($formateur);
             $entityManager->flush();
+            $this->get('session')->getFlashBag()->add('notice','Formateur ajouté' );
 
             return $this->redirectToRoute('formateur_index');
         }
@@ -69,7 +81,7 @@ class FormateurController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('formateur_index');
+            return $this->redirectToRoute('formateur_new');
         }
 
         return $this->render('formateur/edit.html.twig', [
@@ -91,4 +103,5 @@ class FormateurController extends AbstractController
 
         return $this->redirectToRoute('formateur_index');
     }
+
 }

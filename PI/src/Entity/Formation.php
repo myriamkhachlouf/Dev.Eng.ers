@@ -61,7 +61,7 @@ class Formation
 
     /**
      * @ORM\ManyToOne(targetEntity=Evenement::class, inversedBy="formation")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $idevenement;
 

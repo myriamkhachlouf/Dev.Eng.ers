@@ -47,4 +47,11 @@ class EvenementRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function listOrderByNote()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.nom', 'ASC')
+            ->getQuery()->getResult();
+    }
+
 }

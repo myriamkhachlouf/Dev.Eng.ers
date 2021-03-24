@@ -40,9 +40,14 @@ class Evenement
     private $logo;
 
     /**
-     * @ORM\OneToMany(targetEntity=formation::class, mappedBy="idevenement")
+     * @ORM\OneToMany(targetEntity=Formation::class, mappedBy="idevenement")
      */
     private $formation;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
 
     public function __construct()
     {
@@ -128,6 +133,18 @@ class Evenement
                 $formation->setIdevenement(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

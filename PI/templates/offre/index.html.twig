@@ -11,6 +11,7 @@
 </head>
 <body class="is-preload">
 
+</form>
 <!-- Wrapper -->
 <div id="wrapper">
 
@@ -77,32 +78,46 @@
 
         <!-- Featured Jobs -->
         <a class="button next" href="{{ path('offre_new') }}">Create new</a>
+        <div class="button next">
+            {{ knp_pagination_render(offres) }}
+        </div>
+        <form method="POST">
+            <input type="text" name="Recherche">
+            <button type="submit" class="site-btn">Recherche</button>
+        </form>
+        <a class="button next" href="/offre/aman/">Trie Par Nom Offre</a>
         <section class="tiles">
+
             {% block body %}
 
                     {% for offre in offres %}
                         <article>
 							<span class="image">
-								<img src="images/product-1-720x480.jpg" alt="" />
+								<img src="{{ asset('upload/' ~ offre.type) }}" alt="" />
 							</span>
 
                             <header class="major">
                                 <p>
+                                    {% for entreprises in entreprises %}
+                                    {% if entreprises==offre.entreprise %}
                                     <i class="fa fa-calendar"></i> 15-06-2020 &nbsp;&nbsp;
-                                    <i class="fa fa-file"></i> {{ offre.nomOffre }} &nbsp;&nbsp;
-                                    <i class="fa fa-map-marker"></i> {{ offre.type }}
+                                    <i class="fa fa-file"></i>  &nbsp;&nbsp;{{ entreprises.nom}}
+
                                 </p>
 
-                                <h3>{{ offre.nomOffre }}</h3>
 
+                                <h3>{{ offre.nomOffre }}</h3>
+                    {% endif %}
+                {% endfor %}
                                 <p><strong>$60 000</strong></p>
 
-                                <p> {{ offre.type }}</p>
+
                                 <p> BMI Kings Park Hospital</p>
 
                                 <div class="major-actions">
                                     <a class="button small next" href="{{ path('offre_show', {'id': offre.id}) }}">show</a>
                                     <a class="button small next" href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+                                    <a class="button small next" href="{{ path('candidature_new', {'id': offre.id}) }}">Postuler</a>
                                 </div>
                             </header>
                         </article>

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\OffreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,15 +11,15 @@ class FirstController extends AbstractController
 {
 
 
-
     /**
-     * @Route("/first", name="first")
+     * @Route("/first", name="first", methods={"GET"})
+     * @param OffreRepository $offreRepository
+     * @return Response
      */
-    public function index(): Response
+    public function index(OffreRepository $offreRepository): Response
     {
-        return $this->render('base.html.twig', [
-            'controller_name' => 'FirstController',
-        ]);
+        return $this->render('first/index.html.twig');
+
     }
 
     /**
@@ -180,6 +181,15 @@ class FirstController extends AbstractController
     public function userr(): Response
     {
         return $this->render('user.html.twig', [
+            'controller_name' => 'FirstController',
+        ]);
+    }
+    /**
+     * @Route("/recherche", name="user")
+     */
+    public function recherche(): Response
+    {
+        return $this->render('offre/recherche.html.twig', [
             'controller_name' => 'FirstController',
         ]);
     }

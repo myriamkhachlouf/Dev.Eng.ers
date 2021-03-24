@@ -47,4 +47,11 @@ class FormationRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function listOrderByNote()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.capacite', 'ASC')
+            ->getQuery()->getResult();
+    }
+
 }

@@ -18,10 +18,18 @@ class Stage
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToOne(targetEntity=Offre::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $duree;
-
+    private $offre;
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date_debut;
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date_fin;
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -36,15 +44,36 @@ class Stage
     {
         return $this->id;
     }
-
-    public function getDuree(): ?string
+    public function getOffre(): ?offre
     {
-        return $this->duree;
+        return $this->offre;
     }
 
-    public function setDuree(string $duree): self
+    public function setOffre(offre $offre): self
     {
-        $this->duree = $duree;
+        $this->offre = $offre;
+
+        return $this;
+    }
+    public function getDateDebut(): ?\DateTimeInterface
+    {
+        return $this->date_debut;
+    }
+
+    public function setDateDebut(\DateTimeInterface $date_debut): self
+    {
+        $this->date_debut = $date_debut;
+
+        return $this;
+    }
+    public function getDateFin(): ?\DateTimeInterface
+    {
+        return $this->date_fin;
+    }
+
+    public function setDateFin(\DateTimeInterface $date_fin): self
+    {
+        $this->date_fin = $date_fin;
 
         return $this;
     }

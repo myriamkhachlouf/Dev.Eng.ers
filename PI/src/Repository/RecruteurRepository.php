@@ -18,7 +18,17 @@ class RecruteurRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Recruteur::class);
     }
-
+    public function Recherche($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->Where('e.domaine LIKE :val')
+            ->OrWhere('e.nom LIKE :val')
+            ->OrWhere('e.prenom LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Recruteur[] Returns an array of Recruteur objects
     //  */

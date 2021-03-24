@@ -16,10 +16,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class RecruteurController extends AbstractController
 {
     /**
-     * @Route("/", name="recruteur_index", methods={"GET"})
+     * @Route("/", name="recruteur_index", methods={"GET","POST"})
      */
-    public function index(RecruteurRepository $recruteurRepository): Response
+    public function index(RecruteurRepository $recruteurRepository,Request $request): Response
+    {if($request->isMethod("POST"))
     {
+        $value=$request->get('Recherche');
+
+
+        return $this->render('recruteur/index.html.twig', [
+            'recruteurs' => $recruteurRepository->recherche($value),
+        ]);
+    }
         return $this->render('recruteur/index.html.twig', [
             'recruteurs' => $recruteurRepository->findAll(),
         ]);

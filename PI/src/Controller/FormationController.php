@@ -5,25 +5,37 @@ namespace App\Controller;
 use App\Entity\Formation;
 use App\Form\FormationType;
 use App\Repository\FormationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/formation")
  */
-class FormationController extends AbstractController
+class FormationController extends Controller
 {
     /**
      * @Route("/", name="formation_index", methods={"GET"})
      * @param FormationRepository $formationRepository
      * @return Response
      */
-    public function index(FormationRepository $formationRepository): Response
+    public function index(FormationRepository $formationRepository,Request $request,PaginatorInterface $paginator): Response
     {
+        $allformations=$formationRepository->findAll();
+            $formations= $this->get('knp_paginator')->paginate(
+        // Doctrine Query, not results
+            $allformations,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            3
+        );
+
+
         return $this->render('formation/index.html.twig', [
-            'formations' => $formationRepository->findAll(),
+            'formations' => $formations
         ]);
     }
 
@@ -103,5 +115,28 @@ class FormationController extends AbstractController
         }
 
         return $this->redirectToRoute('formation_index');
+    }
+    /**
+     * @Route("/{id}", name="formation_show", methods={"GET"})
+     * @param Formation $formation
+     * @return Response
+     */
+    /**
+     * @Route("/tri", name="tri", methods={"GET"})
+     */
+    public function tri(FormationRepository $formation,Request $request): Response
+    {
+        $allformations=$formation->listOrderByNote();
+        $formations = $this->get('knp_paginator')->paginate(
+        // Doctrine Query, not results
+            $allformations,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            2
+        );
+        return $this->render('formation/index.html.twig', [
+            'formation' => $formations,
+        ]);
     }
 }
