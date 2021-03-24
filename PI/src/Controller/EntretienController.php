@@ -51,6 +51,15 @@ class EntretienController extends Controller
             'entretiens' => $entretiens,
         ]);
     }
+    /**
+     * @Route("/trier_index", name="trier_index", methods={"GET"})
+     */
+    public function index1(EntretienRepository $entretienRepository): Response
+    {
+        return $this->render('entretien/index.html.twig', [
+            'entretiens' => $entretienRepository->listOrderByDate(),
+        ]);
+    }
 
     /**
      * @Route("/new", name="entretien_new", methods={"GET","POST"})
